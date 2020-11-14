@@ -1,51 +1,66 @@
 <template>
-    <div>
-        <div class="landing">
-            <div id="coding"><h1>Coding.</h1></div>
-            <img id="whale" src="../assets/Whale.png" alt="Whale">
-            <div id="creative"><h1>Creative.</h1></div>
+        <div class="landing" @scroll="isMirrored()">
+            <h1 class="txcoding">Coding.</h1>
+            <h1  class="txcreative">Creative.</h1>
+            <h1  class="txsolution">Solutions.</h1>
+            <a href="https://www.instagram.com/smallcornerarts/?hl=de">
+            
+            <img v-if="!m" class="whale" src="../assets/Whale.png" alt="Whale">
+            <img v-if="m" class="whale" src="../assets/whale_mirrored.png" alt="Whale">
+            <img class="plant" src="../assets/pflanze.png" alt="plant">
+            </a>
         </div>
-        <div class="person">
-            <h1>Siggi Funkl</h1>
-            <p>Ich bin ein kleiner blablabla...</p>
-
-        </div>
-        <div class="coding">
-            <h1>Coding</h1>
-            <p>In meinem Studium habe ich schon so viel programmiert...</p>
-        </div>
-        <div class="creative">
-            <h1>Creative</h1>
-            <p>Ich bin ja soooo kreativ ...</p>
-            <Soundcloud track="683327279" :mini="true" @ready="ready"/>
-        </div>
-    </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-//import SoundCloud from 'vue-soundcloud-player'
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, computed , ref } from '@vue/composition-api'
 export default defineComponent({
     name: "Landing",
-    components:{
-        //SoundCloud
-    },
-    methods:{
-        //ready(){
 
-        //}
+
+    setup() {
+        const m = ref(false)
+
+        function isMirrored() {
+            console.log(window.pageYOffset)
+            if (window.pageYOffset > 10){
+                if (window.pageYOffset < 250 ){
+                    m.value = true;
+                }
+            }
+            else m.value = false;
+        }
+
+        return {m , isMirrored};
+    },
+
+    mounted() {
+        window.addEventListener("scroll", this.redirectUser)
+    },
+    beforeDestroy() {
+        window.removeEventListener("scroll", this.redirectUser)
+    },
+
+    methods: {
+        redirectUser() {
+
+            if (window.scrollY > 350 ) {
+                this.$router.push('/about')
+            }
+        }
     }
-})
+});
 </script>
 
 <style>
     .landing {
         position: absolute;
-        top: 0px;
-        left: 15%;
-        width: 85%;
-        height: 200%;
+        /* position:-webkit-sticky; */
+        /* position: sticky; */
+        top: 0%;
+        left: 210.5px;
+        width: 85.5%;
+        height: 173%;
         float: left;
         background-color:  #555B6E;
         border-style: none none solid solid;
@@ -54,62 +69,39 @@ export default defineComponent({
         box-shadow: -5px 0px 12px #86B1AD;
     }
 
-    .person {
-        position: absolute;
-        top: 200%;
-        left: 15%;
-        width: 85%;
-        height: 200%;
-        float: left;
-        background-color:#B6F1EB;
-    }
-
-    .coding {
-        position: absolute;
-        top: 400%;
-        left: 15%;
-        width: 85%;
-        height: 200%;
-        float: left;
-        background-color:  #555B6E;
-        border-style: none none solid solid;
-        border-color: #FFC4D1;
-        border-width: 4px;
-        box-shadow: -5px 0px 12px #86B1AD;
-    }
-
-    .creative {
-        position: absolute;
-        top: 600%;
-        left: 15%;
-        width: 85%;
-        height: 200%;
-        float: left;
-        background-color:  #555B6E;
-        border-style: none none solid solid;
-        border-color: #FFC4D1;
-        border-width: 4px;
-        box-shadow: -5px 0px 12px #86B1AD;
-    }
-
-    #whale{
+    .whale{
         position: fixed;
         top: 10%;
-        left:45%;
-        max-width: 20%;
+        left:43%;
+        max-width: 25%;
     }
 
-    #coding {
+    .txcoding {
         position: absolute;
-        top: 3%;
-        left: 10%;
+        top: 40px;
+        left: 100px;
     }
 
-    #creative {
+    .txcreative {
         position: absolute;
-        top: 20%;
+        top: 25%;
         left: 65%;
     }
+
+    .txsolution {
+        position: absolute;
+        top: 800px;
+        left: 80px;
+    }
+
+    .plant {
+        position: absolute;
+        top: 68%;
+        left: 40%;
+        max-width: 150px;
+        transform: rotate(180deg);
+    }
+
 
 
 </style>

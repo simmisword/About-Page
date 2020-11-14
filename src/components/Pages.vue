@@ -2,7 +2,7 @@
     <div>
         <div class="box" id="grey"></div>
         <div class="box" id="blue"></div>
-        <img id="logo" alt="logo" src="../assets/logo.png">
+        <router-link to="/" ><img id="logo" alt="logo" src="../assets/logo.png"></router-link>
     </div>
 </template>
 
@@ -23,22 +23,22 @@ export default Vue.extend({
     #logo {
         position: fixed;
         top: 46%;
-        left: 6%;
-        max-width: 8%;
+        left: 80px;
+        width: 120px;
     }
 
     #grey {
-        left: 5%;
-        width: 5%;
+        left: 70px;
+        width: 70px;
         height: 100%;
         background-color: #D4DCCD;
     }
 
     #blue {
-        left: 10%;
-        width: 5%;
+        left: 140px;
+        width: 70px;
         height: 100%;
         background-color: #B6F1EB;
-        box-shadow: -5px 0px 12px #81867C;
+        box-shadow: -6px 4px 6px 0px #81867C;
     }
 </style>
