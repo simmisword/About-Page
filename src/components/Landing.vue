@@ -1,107 +1,154 @@
 <template>
-        <div class="landing" @scroll="isMirrored()">
-            <h1 class="txcoding">Coding.</h1>
-            <h1  class="txcreative">Creative.</h1>
-            <h1  class="txsolution">Solutions.</h1>
-            <a href="https://www.instagram.com/smallcornerarts/?hl=de">
-            
-            <img v-if="!m" class="whale" src="../assets/Whale.png" alt="Whale">
-            <img v-if="m" class="whale" src="../assets/whale_mirrored.png" alt="Whale">
-            <img class="plant" src="../assets/pflanze.png" alt="plant">
-            </a>
-        </div>
+    <b-container class="landing" align-self="left">
+        <b-container>
+            <div class="pink"><img id="vinyl" src="../assets/wasser.jpg" alt="raytracing"></div>
+            <b-row align-v="center" id="header">
+                <b-col cols="8"></b-col>
+            </b-row>
+                        <b-row align-v="center" id="header">
+                <b-col cols="8"></b-col>
+            </b-row>
+
+            <b-row align-v="center" class="landing-row">
+                <b-col cols="1"></b-col>
+                <b-col cols="2"><h1 class="biggi-h1 land-h">Coding.</h1></b-col>
+                <b-col cols="9"></b-col>
+            </b-row>
+            <b-row align-v="center" class="landing-row">
+                <b-col cols="9"></b-col>
+                <b-col cols="3"><h1 class="biggi-h1 land-h">Creative.</h1></b-col>
+            </b-row>
+            <b-row align-v="center" class="landing-row">
+                <b-col cols="8"></b-col>
+            </b-row>
+            <b-row align-v="center" class="landing-row">
+                <b-col cols="8"></b-col>
+            </b-row>
+
+            <b-row align-v="center" class="landing-row">
+                <b-col cols="1"></b-col>
+                <b-col cols="2"><h1 class="biggi-h1">Solutions.</h1></b-col>
+                <b-col cols="9"></b-col>        
+            </b-row>
+            <b-row align-v="center" class="landing-row">
+                <b-col cols="8"></b-col>
+                <b-col cols="2">
+                    <div class="plant">
+                        <a href="https://www.instagram.com/smallcornerarts/?hl=de">
+                            <b-img src="../assets/pflanze.png" alt="plant"></b-img>
+                        </a>
+                    </div>
+                </b-col>
+            </b-row>
+            <b-row align-v="center" class="landing-row">
+                <b-col cols="8"></b-col>
+            </b-row>
+            <b-row align-v="center" class="landing-row">
+                <b-col cols="8"></b-col>
+            </b-row>
+        </b-container>
+        <b-container>
+            <div class="whale">
+                <a href="https://www.instagram.com/smallcornerarts/?hl=de">
+                    <transition name="whale-fade" mode="out-in">
+                        <div v-if="!isMirrored"><b-img id="whale-img" src="../assets/Whale.png" alt="Whale"></b-img></div>
+                        <div v-else><b-img id="whale-img-mir" src="../assets/whale_mirrored.png" alt="WhaleM"></b-img></div>
+                    </transition>
+                </a>
+            </div>
+        </b-container>
+    </b-container>
 </template>
 
-<script lang="ts">
-import { defineComponent, computed , ref } from '@vue/composition-api'
+<script lang="js">
+import { defineComponent} from '@vue/composition-api'
 export default defineComponent({
     name: "Landing",
 
-
-    setup() {
-        const m = ref(false)
-
-        function isMirrored() {
-            console.log(window.pageYOffset)
-            if (window.pageYOffset > 10){
-                if (window.pageYOffset < 250 ){
-                    m.value = true;
-                }
-            }
-            else m.value = false;
+    data: function() {
+        return {
+            isMirrored:Boolean(false)
         }
-
-        return {m , isMirrored};
     },
 
     mounted() {
-        window.addEventListener("scroll", this.redirectUser)
+        window.addEventListener("scroll", this.scrollHandle)
     },
     beforeDestroy() {
-        window.removeEventListener("scroll", this.redirectUser)
+        window.removeEventListener("scroll", this.scrollHandle)
     },
 
     methods: {
-        redirectUser() {
+        scrollHandle() {
+            console.log(window.scrollY, window.pageYOffset);
+            console.log("mirrored-s: ",this.$data.isMirrored);
+            if (window.scrollY > 130) {
+                this.$data.isMirrored = true;
+                console.log("mirrored-170: ",this.$data.isMirrored);
+                if (window.scrollY > 360) {
+                    this.$data.isMirrored = false;
+                    console.log("mirrored-300: ",this.$data.isMirrored);                    
+                }
+                if (window.scrollY > 650 ) {
+                    this.$router.push('/about')
+                }
+            } else this.$data.isMirrored =false;
 
-            if (window.scrollY > 350 ) {
-                this.$router.push('/about')
-            }
-        }
+        },
+
     }
 });
 </script>
 
 <style>
-    .landing {
-        position: absolute;
-        /* position:-webkit-sticky; */
-        /* position: sticky; */
-        top: 0%;
-        left: 210.5px;
-        width: 85.5%;
-        height: 173%;
-        float: left;
-        background-color:  #555B6E;
-        border-style: none none solid solid;
-        border-color: #FFC4D1;
-        border-width: 4px;
-        box-shadow: -5px 0px 12px #86B1AD;
+
+
+    .landing-row{
+        height: 200px;
     }
 
     .whale{
-        position: fixed;
+        position: relative;
+        width: 30%;
+
+    }
+
+    .land-h{
+        text-shadow: -2px 2px 0px gray;
+    }
+
+    #whale-img{
+        position:fixed;
         top: 10%;
-        left:43%;
-        max-width: 25%;
+        left:40%;
+        max-width: 100%
     }
 
-    .txcoding {
-        position: absolute;
-        top: 40px;
-        left: 100px;
-    }
-
-    .txcreative {
-        position: absolute;
-        top: 25%;
-        left: 65%;
-    }
-
-    .txsolution {
-        position: absolute;
-        top: 800px;
-        left: 80px;
+    #whale-img-mir{
+        position:fixed;
+        top: 10%;
+        left:38%;
+        max-width: 100%;
+        transform: rotate(5deg);
     }
 
     .plant {
         position: absolute;
-        top: 68%;
+        top: 800px;
         left: 40%;
-        max-width: 150px;
+        width: 20%;
         transform: rotate(180deg);
     }
 
+    #header {
+        height: 120px;
+    }
 
+    .whale-fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+    }
+    .whale-fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+    }
 
 </style>

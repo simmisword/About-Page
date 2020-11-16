@@ -1,36 +1,84 @@
 <template>
-    <div class="person" transition="about-fade">
-        <div class="pink">
-          <h1 class="hi">Hi ich bin Simon,</h1>
-          <img id="vinyl" src="../assets/Vinyl@2x.png" alt="Vinyl-Shop">
-        </div>
-        <div class="about-text">
-          <div class="about-small-left">
-              <p>23 Jahre alt, komme aus Ingolstadt und studiere seit Oktober 2017 in Wiesbaden.<br/>
-              Behütet aufgewachsen ging es für mich ab auf das musische Gnadenthal-Gymnasium, das früher von 
+    <b-container>
+      <img class="pink" id="vinyl" src="../assets/Vinyl@2x.png" alt="Vinyl-Shop">
+              <b-row class="about-row">
+          <b-col cols="2"></b-col>
+
+          <b-col cols="2"></b-col>
+        </b-row>
+      <b-row  align-v="center" class="empty-s">
+        <b-col cols="1"></b-col>
+        <b-col cols="8">
+            <h1 class="biggi-h1" id="hi">Hi ich bin Simon,</h1>
+        </b-col>
+      </b-row>
+        <b-row class="about-row">
+          <b-col cols="2"></b-col>
+
+          <b-col cols="2"></b-col>
+        </b-row>
+      <b-row class="about-row">
+        <b-col cols="1"></b-col>
+        <b-col cols="7"><h2 >23 Jahre alt, komme aus Ingolstadt und <br/> studiere seit Oktober 2017 in Wiesbaden.</h2></b-col>
+        <b-col cols="4"></b-col>
+      </b-row>
+      <b-row align-v="center" class="empty-s">
+        <b-col cols="12"></b-col>
+        <b-col></b-col>
+      </b-row>
+        <b-row class="about-row">
+          <b-col cols="2"></b-col>
+          <b-col cols="4">
+              <div class="text-box">
+              <p class="text">Behütet aufgewachsen ging es für mich ab auf das musische Gnadenthal-Gymnasium, das früher von 
               Klosterschwestern unterrichtet wurde. Leider fiel mir auf dem klassischen Wege der 
               Musik-Lehrer*innen das Lernen ziemlich schwer. Jedoch höre ich seit ich denken kann schon gerne  
               Musik.</p>
-          </div>
-          <div class="about-smal-right">
-              <p>In den Sommerferien habe ich zwischen 14 und 20 Jahren für einige Wochen bei Continental 
+              </div>
+          </b-col>
+          <b-col cols="4">
+            <div class="text-box">
+              <p class="text">In den Sommerferien habe ich zwischen 14 und 20 Jahren für einige Wochen bei Continental 
               Ferienjobs gemacht. Jedenfalls habe ich dann 2015 mein Abi gemacht und wusste nicht so recht 
               was nun aus mir werden soll. Also habe ich zuerst wenig erfolgreich ein Jahr Geographie, eins 
-              Soziologie studiert, nebenbei in einer Bar gearbeitet und bin aus dem Elternhaus gezogen.</p>
-          </div>
-          <div class="about-small-left">
-              <h2>Geflohen vor der Seehofer’schen Kleinstadt-Mentalität der Audi-Stadt im Wandel des Kapitalismus 
+              Soziologie studiert, nebenbei in einer Bar gearbeitet und bin aus dem Elternhaus gezogen.
+              </p>
+              </div>
+          </b-col>
+          <b-col cols="2"></b-col>
+        </b-row>
+        <b-row class="about-row">
+          <b-col cols="2"></b-col>
+          <b-col cols="4">
+            <div class="text-box">
+
+              <h2 class="text">Geflohen vor der Seehofer’schen Kleinstadt-Mentalität der Audi-Stadt im Wandel des Kapitalismus 
                   in die Arme der hessischen Landeshauptstadt, ins Rhein-Main-Gebiet.</h2>
-          </div>
-          <div class="about-text-right">
-              <p>In dieser Zeit habe ich auch das Reisen ganz neu entdeckt und ich bemerkte, dass es überall auf 
+            </div>
+          </b-col>
+          <b-col cols="4">
+            <div class="text-box">
+              <p class="text">In dieser Zeit habe ich auch das Reisen ganz neu entdeckt und ich bemerkte, dass es überall auf 
                   der Welt so viele interessante Dinge gibt. Und man muss nicht mal sehr weilt dafür Fahren. Ich 
                   hatte bis dahin kaum in Erwägung gezogen, einmal Informatik zu studieren, weil ich zwar ein 
                   recht ordentliches Mathemtik-Verständnis, jedoch kein  ……..
-                  Also zog ich 2017 nach Wiesbaden, um dort Medieninformatik an der Hochschule Rhein-Main zu studieren.</p>
-          </div>
-        </div>
-    </div>
+                  Also zog ich 2017 nach Wiesbaden, um dort Medieninformatik an der Hochschule Rhein-Main zu studieren.
+              </p>
+              </div>
+          </b-col>
+          <b-col cols="2"></b-col>
+        </b-row>
+        <b-row class="about-row">
+          <b-col cols="2"></b-col>
+
+          <b-col cols="2"></b-col>
+        </b-row>
+        <b-row class="about-row">
+          <b-col cols="2"></b-col>
+
+          <b-col cols="2"></b-col>
+        </b-row>
+    </b-container>
 </template>
 
 <script lang="ts">
@@ -46,9 +94,10 @@ export default defineComponent({
 
     methods: {
         redirectUser () {
+          console.log(window.scrollY)
             if (window.scrollY < 1 ) {
                 this.$router.push('/')
-            } else if (window.scrollY > 700 ) {
+            } else if (window.scrollY > 1720 ) {
                 this.$router.push('/coding')
             }
         }
@@ -67,14 +116,44 @@ export default defineComponent({
   text-align: left;
 }
 
-.hi{
-  position: absolute;
-  margin:auto;
+.empty-s{
+  height: 300px;
+}
+
+.about-row{
+  height: 350px;
+  text-align: left;
+}
+
+.text-box{
+  background-color: #555B6E;
+  opacity: 0.8;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: -2px 3px 8px 0px #b6f1eb;
+}
+
+.text{
+  opacity: 1;
+}
+
+#hi{
   text-align: center;
-  padding-top: 5%;
+  color: #555B6E;
+  opacity: 0.8;
+  text-shadow: 3px 2px 2px #b6f1eb;
+}
+
+.hi2{
+  position: absolute;
+  padding-top: 40%;
+  padding-left:100px;
+  text-align: left;
+  padding-bottom: 5%;
+
   width: 100%;
   height: 25%;
-  color: #555B6E;
+  color:#555B6E;
   opacity: 0.8;
 }
 
@@ -109,17 +188,15 @@ export default defineComponent({
 }
 
 #vinyl {
-  position: relative;
-  top:0px;
-  left: 0pt;
+  position: fixed;
   width: 100%;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .pink {
-  position: relative;
-  top: 0%;
-  left: 0px;
+  position: absolute;
+  top: 0px;
+  left: 140px;
   width: 100%;
 }
 

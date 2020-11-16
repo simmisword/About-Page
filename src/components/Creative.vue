@@ -1,17 +1,77 @@
 <template>
-        <div class="creative" @scroll="redirectUser()">
-            <h1>Creative</h1>
-            <div class="pics" >
-                <a href="https://open.spotify.com/track/448u2yJ8CMXdvi8OTAxmVL"><img class="bild" id="mablues" src="../assets/ma.blues.jpg" alt="Anatolian Lover ft. Jacob W. - ma.blues"></a>
-                <a href="https://open.spotify.com/track/2ZO90qZMWIqqmEE9hTUY73"><img class="bild" id="existed" src="../assets/existed_fin2.0.jpg" alt="Anatolian Lover ft. Jacob W. - Existed"></a>
-                <a href="https://open.spotify.com/track/4RFhgxXMSFhyKhoMBhAgi1"><img class="bild" id="qtime" src="../assets/qualitytime2.jpg" alt="Anatolian Lover ft. Jacob W. - Qualitytime"></a>
-            </div>
-            <div class="music">
-                <a href="https://soundcloud.com/user-80491418/sets/between-the-sheets"><img class="bild" id="bts" src="../assets/between the sheets.png" alt="BTS"></a>
+    <b-container>
+        <b-row class="placeholder">
+            <b-col cols="12"></b-col>
+        </b-row>
+        <b-row class="placeholder">
+            <b-col cols="12"></b-col>
+        </b-row>
+        <div id="codeTx"><h1 class="biggi-h1">Creative</h1></div>
+        <b-row class="placeholder">
+            <b-col cols="12"></b-col>
+        </b-row>
+        <h2>Cover:</h2>
+        <b-row class="placeholder"></b-row>
+        <b-row class="pics">
+            <b-col cols="2"></b-col>
+            <b-col cols="4">
+                <a href="https://open.spotify.com/track/448u2yJ8CMXdvi8OTAxmVL"><b-img thumbnail class="image" src="../assets/ma.blues.jpg" alt="Anatolian Lover ft. Jacob W. - ma.blues"></b-img></a>
+            </b-col>
+            <b-col cols="6">
+                <div>
+                <h1>ma blues</h1>
+                <h3>Anatolian Lover</h3>
+                Das war das erste Cover, das ich für Yasar machen durfte.<br/>
+                Dabei habe ich das wunderschöne Bild von <a href="https://www.oliwolff.com/">@oliwolff</a> benutzt.
+                </div>
+            </b-col>
+            <b-col cols="2"></b-col>
+        </b-row>
+        <b-row class="pics">
+            <b-col cols="2"></b-col>
+            <b-col cols="4">
+                <div id="warnetx">
+                <h1>Existed</h1>
+                <h3>Anatolian Lover ft. Jacob W.</h3>
+                </div>
+            </b-col>
+            <b-col cols="4">
+                <a href="https://open.spotify.com/track/2ZO90qZMWIqqmEE9hTUY73"><b-img thumbnail class="image" src="../assets/existed_fin2.0.jpg" alt="Anatolian Lover ft. Jacob W. - Existed"></b-img></a>
+            </b-col>
+            <b-col cols="2"></b-col>
+        </b-row>
+        <b-row class="pics">
+            <b-col cols="2"></b-col>
+            <b-col cols="4">
+                <a href="https://open.spotify.com/track/4RFhgxXMSFhyKhoMBhAgi1"><b-img thumbnail class="image" src="../assets/qualitytime2.jpg" alt="Anatolian Lover ft. Jacob W. - Qualitytime"></b-img></a>
+            </b-col>
+            <b-col cols="6">
+                <div>
+                <h1>Qualitytime</h1>
+                <h3>Anatolian Lover</h3>
+                </div>
+            </b-col>
+            <b-col cols="2"></b-col>        </b-row>
+        <h2>Musik:</h2>
 
+        <b-row class="placeholder"></b-row>
+        <div class="centered">
+            <h1>Between The Sheets</h1>
+            <h3>Siggi Funkl</h3>
+        </div>
+        <b-row class="placeholder"></b-row>
+        <b-row class="pics ">
+            <b-col cols="4"></b-col>
+            <b-col cols="4">
+                <a href="https://soundcloud.com/user-80491418/sets/between-the-sheets"><b-img thumbnail class="image" src="../assets/between the sheets.png" alt="BTS"></b-img></a>
+            </b-col>
+            <b-col cols="4"></b-col>
+        </b-row>
+    </b-container>
+<!-- 
             </div>
             <Soundcloud track="683327279" :mini="true"/>
-        </div>
+        </div> -->
 </template>
 
 <script >
@@ -57,10 +117,11 @@ export default defineComponent({
     }
 
     .pics {
-        position: absolute;
-        padding-left: 1%;
-        width: 99%;
-        background-color: #FFC4D1;
+        height: 500px;
+    }
+
+    .image:hover{
+        box-shadow: -3px 3px 10px #FFC4D1;
     }
 
     .bild {

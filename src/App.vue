@@ -1,14 +1,10 @@
 <template>
-  <section id="app">
+  <section class="about-siggi">
+    <MenuBar/>
+    <Pages/>
+    <transition name="fade">
     <router-view/>
-
-    <div class="pages">
-        <Pages/>
-    </div>
-
-    <div id="menubar">
-      <MenuBar/>
-    </div>
+    </transition>
   </section>
 </template>
 
@@ -16,11 +12,7 @@
 import Vue from 'vue'
 import MenuBar from "@/components/MenuBar.vue"
 import Pages from "@/components/Pages.vue"
-import { BootstrapVue } from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
 
-
-Vue.use(BootstrapVue)
 export default Vue.extend({
 
 
@@ -31,15 +23,32 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style>
 
-#app {
+.about-siggi {
   font-family: Cardo;
-  // background-color:  #555B6E;
+  background-color:  #555B6E;
   color: #D4DCCD;
+  text-align: left;
+}
+
+.alt-font{
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.biggi-h1{
+  font-size: 60pt;
+}
+
+.centered{
   text-align: center;
 }
-    h1 {
-        font-size: 56pt;
-    }
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 </style>
