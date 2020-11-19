@@ -1,5 +1,6 @@
 <template>
     <b-container>
+        <img class="bg-pic" src="../assets/raytrace.jpeg" alt="raytracing">
         <b-row class="placeholder">
             <b-col cols="12"></b-col>
         </b-row>
@@ -7,7 +8,6 @@
             <b-col cols="12"></b-col>
         </b-row>
         <div id="codeTx"><h1 class="biggi-h1">Coding</h1></div>
-        <div class="pink"><img id="vinyl" src="../assets/raytrace.jpeg" alt="raytracing"></div>
         <b-row class="placeholder">
             <b-col cols="12"></b-col>
         </b-row>

@@ -1,7 +1,7 @@
 <template>
-    <b-container class="landing" align-self="left">
+    <b-container>
         <b-container>
-            <div class="pink"><img id="vinyl" src="../assets/wasser.jpg" alt="raytracing"></div>
+            <img class="bg-pic" src="../assets/wasser.jpg" alt="raytracing">
             <b-row align-v="center" id="header">
                 <b-col cols="8"></b-col>
             </b-row>
@@ -82,10 +82,10 @@ export default defineComponent({
         scrollHandle() {
             console.log(window.scrollY, window.pageYOffset);
             console.log("mirrored-s: ",this.$data.isMirrored);
-            if (window.scrollY > 130) {
+            if (window.scrollY > 200) {
                 this.$data.isMirrored = true;
                 console.log("mirrored-170: ",this.$data.isMirrored);
-                if (window.scrollY > 360) {
+                if (window.scrollY > 400) {
                     this.$data.isMirrored = false;
                     console.log("mirrored-300: ",this.$data.isMirrored);                    
                 }

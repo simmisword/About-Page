@@ -1,6 +1,6 @@
 <template>
     <b-container>
-      <img class="pink" id="vinyl" src="../assets/Vinyl@2x.png" alt="Vinyl-Shop">
+      <img class="bg-pic" src="../assets/Vinyl@2x.png" alt="Vinyl-Shop">
               <b-row class="about-row">
           <b-col cols="2"></b-col>
 
@@ -187,18 +187,15 @@ export default defineComponent({
   opacity: 0.5;
 }
 
-#vinyl {
+.bg-pic {
   position: fixed;
+  top: 0px;
+  left: 0px;
   width: 100%;
   opacity: 0.5;
 }
 
-.pink {
-  position: absolute;
-  top: 0px;
-  left: 140px;
-  width: 100%;
-}
+
 
 .about-fade-enter {
     transition: all 3s ease;

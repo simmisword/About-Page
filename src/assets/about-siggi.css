@@ -1,0 +1,41 @@
+
+/* General */
+.about-siggi {
+    font-family: Cardo;
+    background-color:  #555B6E;
+    color: #D4DCCD;
+    text-align: left;
+  }
+  
+  .biggi-h1{
+    font-size: 500%;
+  }
+  
+  .centered{
+    text-align: center;
+  }
+  
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+
+
+
+  /* Navigation */
+
+
+  .menu{
+    position: fixed;
+    top: 40px;
+    left: 37px;
+}
+
+.logo {
+    position: fixed;
+    top: 40%;
+    left: 10px;
+    width: 120px;
+}

@@ -1,16 +1,17 @@
 <template>
     <b-container>
+        <img class="bg-pic" src="../assets/berlin.jpeg">
         <b-row class="placeholder">
             <b-col cols="12"></b-col>
         </b-row>
         <b-row class="placeholder">
             <b-col cols="12"></b-col>
         </b-row>
-        <div id="codeTx"><h1 class="biggi-h1">Creative</h1></div>
+        <!-- <div id="codeTx"><h1 class="biggi-h1">Creative</h1></div> -->
         <b-row class="placeholder">
             <b-col cols="12"></b-col>
         </b-row>
-        <h2>Cover:</h2>
+        <!-- <h2>Cover:</h2> -->
         <b-row class="placeholder"></b-row>
         <b-row class="pics">
             <b-col cols="2"></b-col>
